@@ -179,15 +179,18 @@ module.exports = function() {
     if (alreadyCompiledFiles.indexOf(resourcePath) > -1) {
       console.log('Started compiling Elm..');
     }
+    options.output = 'main.js'
     console.log(files);
     console.log(options);
     var compilation = elmCompiler
       .compileToString(['/home/nowuser/src/elm/Main.elm'], options)
       .then(function(v) {
+        console.log(v);
         runningInstances -= 1;
         return { kind: 'success', result: v };
       })
       .catch(function(v) {
+        console.log(v);
         runningInstances -= 1;
         return { kind: 'error', error: v };
       });
