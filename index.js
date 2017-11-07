@@ -141,6 +141,7 @@ module.exports = function() {
       dependencies.map(addDependencies);
       return { kind: 'success', result: true };
     }).catch(function(v){
+      console.log(v);
       emitError(v);
       return { kind: 'error', error: v };
     })
@@ -175,9 +176,10 @@ module.exports = function() {
       .catch(function(v) { runningInstances -= 1; return { kind: 'error', error: v }; });
 
     promises.push(compilation);
-
+    console.log('Log 1');
     Promise.all(promises)
       .then(function(results) {
+        console.log('Log 2');
         var output = results[results.length - 1]; // compilation output is always last
 
         if (output.kind == 'success') {
@@ -188,6 +190,7 @@ module.exports = function() {
           callback(output.error);
         }
       }).catch(function(err){
+        console.log(err);
         callback(err);
       });
 
