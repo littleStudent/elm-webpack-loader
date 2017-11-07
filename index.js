@@ -116,6 +116,7 @@ module.exports = function() {
 
   var options = getOptions.call(this);
   var files = getFiles.call(this, options);
+  console.log(files);
   var resourcePath = this.resourcePath;
 
   var promises = [];
