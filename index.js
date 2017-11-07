@@ -125,7 +125,6 @@ module.exports = function() {
   var files = getFiles.call(this, options);
   console.log(files);
   var resourcePath = this.resourcePath;
-  console.log('A');
   var promises = [];
 
   // we only need to track deps if we are in watch mode
@@ -157,22 +156,18 @@ module.exports = function() {
 
     promises.push(dependencies);
   }
-  console.log('B');
   delete options.forceWatch;
 
   var maxInstances = options.maxInstances;
-  console.log('C');
   if (typeof maxInstances === 'undefined') {
     maxInstances = 1;
   } else {
     delete options.maxInstances;
   }
-  console.log('D');
   var intervalId = setInterval(function() {
     if (runningInstances >= maxInstances) return;
     runningInstances += 1;
     clearInterval(intervalId);
-    console.log('E');
     // If we are running in watch mode, and we have previously compiled
     // the current file, then let the user know that elm-make is running
     // and can be slow
