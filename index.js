@@ -178,7 +178,7 @@ module.exports = function() {
     console.log(files);
     console.log(options);
     var compilation = elmCompiler
-      .compileToString(['./src/elm/Main.elm'], options)
+      .compileToString(files, options)
       .then(function(v) {
         // console.log(v);
         runningInstances -= 1;
