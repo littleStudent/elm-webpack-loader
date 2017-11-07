@@ -185,7 +185,7 @@ module.exports = function() {
     var compilation = elmCompiler
       .compileToString(files, options)
       .then(function(v) {
-        console.log(v);
+        // console.log(v);
         runningInstances -= 1;
         return { kind: 'success', result: v };
       })
@@ -201,7 +201,7 @@ module.exports = function() {
       .then(function(results) {
         console.log('Log 2');
         var output = results[results.length - 1]; // compilation output is always last
-        console.log(output);
+        // console.log(output);
         if (output.kind == 'success') {
           alreadyCompiledFiles.push(resourcePath);
           callback(null, output.result);
