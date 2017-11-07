@@ -181,7 +181,7 @@ module.exports = function() {
       .then(function(results) {
         console.log('Log 2');
         var output = results[results.length - 1]; // compilation output is always last
-
+        console.log(output);
         if (output.kind == 'success') {
           alreadyCompiledFiles.push(resourcePath);
           callback(null, output.result);
