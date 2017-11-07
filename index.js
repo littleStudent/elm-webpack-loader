@@ -179,7 +179,7 @@ module.exports = function() {
     if (alreadyCompiledFiles.indexOf(resourcePath) > -1) {
       console.log('Started compiling Elm..');
     }
-    options.output = 'main1.html'
+    options.output = '/main1.html'
     console.log(files);
     console.log(options);
     var compilation = elmCompiler
