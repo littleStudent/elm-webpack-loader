@@ -191,10 +191,10 @@ module.exports = function() {
       });
 
     promises.push(compilation);
-    console.log('Log 1');
+    // console.log('Log 1');
     Promise.all(promises)
       .then(function(results) {
-        console.log('Log 2', results[results.length - 1].kind);
+        console.log('Log 2', results[results.length - 1].result);
         var output = results[results.length - 1]; // compilation output is always last
         // console.log(output);
         if (output.kind == 'success') {
